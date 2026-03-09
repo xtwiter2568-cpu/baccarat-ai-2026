@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baccarat Anti-Casino Mode 2026 - GitHub Edition</title>
+    <title>Baccarat AI 2026 - Extreme Intelligence Edition</title>
     <style>
         * {
             margin: 0;
@@ -45,33 +45,92 @@
             margin-top: 10px;
         }
         
-        .mode-toggle {
-            text-align: center;
-            margin-bottom: 20px;
+        .status-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
         }
         
-        .toggle-btn {
-            padding: 12px 30px;
-            font-size: 1.1em;
-            font-weight: bold;
+        .status-card {
+            background: rgba(30, 30, 47, 0.95);
             border: 2px solid #4CAF50;
-            background-color: #4CAF50;
-            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .status-card h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .stability-score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4CAF50;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+            margin: 10px 0;
+        }
+        
+        .stability-score.warning {
+            color: #FFC107;
+        }
+        
+        .stability-score.danger {
+            color: #FF6B6B;
+        }
+        
+        .stability-bar {
+            background-color: #333;
             border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 0 10px;
+            height: 30px;
+            overflow: hidden;
+            margin: 15px 0;
         }
         
-        .toggle-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+        .stability-fill {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s;
         }
         
-        .toggle-btn.active {
-            background-color: #FF6B6B;
-            border-color: #FF6B6B;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+        .stability-fill.warning {
+            background: linear-gradient(90deg, #FFC107, #FF9800);
+        }
+        
+        .stability-fill.danger {
+            background: linear-gradient(90deg, #FF6B6B, #FF8A80);
+        }
+        
+        .room-status {
+            font-size: 1.3em;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+        }
+        
+        .room-status.normal {
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+        }
+        
+        .room-status.warning {
+            color: #FFC107;
+            border: 2px solid #FFC107;
+        }
+        
+        .room-status.danger {
+            color: #FF6B6B;
+            border: 2px solid #FF6B6B;
         }
         
         .main-grid {
@@ -89,21 +148,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
-        .card.anti-mode {
-            border-color: #FF6B6B;
-        }
-        
         .card h2 {
             color: #4CAF50;
             margin-bottom: 20px;
             font-size: 1.4em;
             border-left: 5px solid #4CAF50;
             padding-left: 15px;
-        }
-        
-        .card.anti-mode h2 {
-            color: #FF6B6B;
-            border-left-color: #FF6B6B;
         }
         
         .btn-group {
@@ -143,10 +193,6 @@
             border: 2px dashed #4CAF50;
         }
         
-        .prediction-box.anti-mode {
-            border-color: #FF6B6B;
-        }
-        
         .prediction-label {
             font-size: 1.1em;
             color: #b0b0b0;
@@ -160,40 +206,37 @@
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
         
-        .accuracy-meter {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 15px;
-            border: 1px solid #4CAF50;
-        }
-        
-        .accuracy-meter.anti-mode {
-            border-color: #FF6B6B;
-        }
-        
-        .accuracy-bar {
-            background-color: #333;
-            border-radius: 10px;
-            height: 25px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        
-        .accuracy-fill {
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        .wait-warning {
+            background: rgba(255, 193, 7, 0.2);
+            border: 3px solid #FFC107;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
             font-weight: bold;
-            font-size: 0.9em;
-            transition: width 0.3s;
+            color: #FFC107;
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+            animation: pulse 1s infinite;
         }
         
-        .accuracy-fill.low {
-            background: linear-gradient(90deg, #FF6B6B, #FF8A80);
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .danger-warning {
+            background: rgba(255, 107, 107, 0.2);
+            border: 3px solid #FF6B6B;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FF6B6B;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            animation: pulse 0.5s infinite;
         }
         
         .history-grid {
@@ -224,32 +267,6 @@
         .item-b { background-color: #DC3545; }
         .item-t { background-color: #28a745; }
         
-        .stats-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-            font-size: 0.9em;
-            color: #b0b0b0;
-        }
-        
-        .stat-box {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .warning-box {
-            background: rgba(255, 107, 107, 0.1);
-            border-left: 4px solid #FF6B6B;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 0 10px 10px 0;
-            color: #FF6B6B;
-            font-size: 0.95em;
-        }
-        
         .info-box {
             background: rgba(76, 175, 80, 0.1);
             border-left: 4px solid #4CAF50;
@@ -265,18 +282,32 @@
 
 <div class="container">
     <header>
-        <h1>🚨 Baccarat Anti-Casino Mode 2026</h1>
-        <p class="subtitle">GitHub Advanced Edition - โหมดแก้ทาง + วิเคราะห์ความแม่นยำ Real-time</p>
+        <h1>🚀 Baccarat AI 2026 - Extreme Intelligence</h1>
+        <p class="subtitle">ระบบวิเคราะห์ความเสี่ยง + ระบบหยุดดู (Wait & Observe) - แก้ปัญหาไพ่แกว่ง</p>
     </header>
     
-    <div class="mode-toggle">
-        <button class="toggle-btn active" onclick="setMode('normal')">📊 โหมดปกติ (Normal)</button>
-        <button class="toggle-btn" onclick="setMode('anti')">🚨 โหมดแก้ทาง (Anti-Casino)</button>
+    <!-- ส่วนสถานะห้อง -->
+    <div class="status-section">
+        <div class="status-card">
+            <h3>📊 Stability Score (ความนิ่งห้อง)</h3>
+            <div id="stabilityScore" class="stability-score">0%</div>
+            <div class="stability-bar">
+                <div id="stabilityFill" class="stability-fill" style="width: 0%">0%</div>
+            </div>
+            <div id="stabilityStatus" class="room-status normal">ยังไม่มีข้อมูล</div>
+        </div>
+        
+        <div class="status-card">
+            <h3>🎯 สถานะห้องปัจจุบัน</h3>
+            <div id="roomPattern" style="font-size: 1.3em; color: #4CAF50; margin: 20px 0;">รอข้อมูล...</div>
+            <div id="riskLevel" style="font-size: 1.1em; color: #b0b0b0;">ความเสี่ยง: ปกติ</div>
+            <div id="recommendation" style="font-size: 0.95em; color: #FFD700; margin-top: 15px; font-weight: bold;">-</div>
+        </div>
     </div>
     
     <div class="main-grid">
         <!-- ฝั่งบันทึกผล -->
-        <div class="card" id="inputCard">
+        <div class="card">
             <h2>📝 บันทึกผลล่าสุด</h2>
             <div class="btn-group">
                 <button class="btn btn-player" onclick="addResult('P')">ผู้เล่น (P)</button>
@@ -285,85 +316,63 @@
             </div>
             <div class="btn-group">
                 <button class="btn btn-undo" onclick="undo()">ย้อนกลับ</button>
-                <button class="btn btn-reset" onclick="reset()">ล้างข้อมูลทั้งหมด</button>
+                <button class="btn btn-reset" onclick="reset()">ล้างข้อมูล</button>
             </div>
             
-            <div class="prediction-box" id="predictionBox">
-                <p class="prediction-label">สูตร AI แนะนำตาถัดไป:</p>
+            <div class="prediction-box">
+                <p class="prediction-label">💡 AI แนะนำ:</p>
                 <div id="prediction" class="prediction-result">รอข้อมูล...</div>
                 <p id="confidence" style="font-size: 0.8em; margin-top: 10px; color: #4CAF50;"></p>
+            </div>
+            
+            <div id="waitWarning" class="wait-warning" style="display: none;">
+                ⏸️ WAIT - ห้องแกว่ง หยุดดูสักครู่
+            </div>
+            
+            <div id="dangerWarning" class="danger-warning" style="display: none;">
+                ⚠️ DANGER - ห้องสวนสูตร ควรเปลี่ยนห้อง
             </div>
         </div>
         
         <!-- ฝั่งประวัติและสถิติ -->
-        <div class="card" id="statsCard">
+        <div class="card">
             <h2>📊 ประวัติและสถิติ</h2>
             <div class="history-grid" id="history">
                 <!-- ประวัติจะแสดงที่นี่ -->
             </div>
             
-            <div class="accuracy-meter" id="accuracyMeter">
-                <p style="font-size: 0.9em; color: #b0b0b0;">ความแม่นยำในช่วง 10 ตาล่าสุด:</p>
-                <div class="accuracy-bar">
-                    <div id="accuracyFill" class="accuracy-fill" style="width: 0%">0%</div>
-                </div>
-            </div>
-            
-            <div class="stats-info" id="stats">
-                <div class="stat-box">P: 0</div>
-                <div class="stat-box">B: 0</div>
-                <div class="stat-box">T: 0</div>
-                <div class="stat-box">ทั้งหมด: 0</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; font-size: 0.9em; color: #b0b0b0;">
+                <div style="background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px; text-align: center;">P: <span id="statP">0</span></div>
+                <div style="background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px; text-align: center;">B: <span id="statB">0</span></div>
+                <div style="background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px; text-align: center;">T: <span id="statT">0</span></div>
             </div>
         </div>
     </div>
     
-    <!-- ข้อมูลเพิ่มเติม -->
     <div class="info-box">
-        <strong>ℹ️ วิธีใช้โหมดแก้ทาง:</strong><br>
-        1. เมื่อคุณเห็นว่าห้องนี้ "สวนสูตร" (ความแม่นยำต่ำกว่า 30%) ให้กดปุ่ม "โหมดแก้ทาง" <br>
-        2. AI จะสลับตรรกะทันที - ถ้าสูตรบอก Banker จะแนะนำ Player แทน <br>
-        3. ใช้วิธีนี้เมื่อห้องแสดงสัญญาณว่า "ตามแล้วเสีย" เท่านั้น
-    </div>
-    
-    <div class="warning-box">
-        ⚠️ <strong>คำเตือนสำคัญ:</strong> แม้ว่าจะมี "โหมดแก้ทาง" แต่ในทางคณิตศาสตร์ บาคาร่ามี House Edge อยู่เสมอ ไม่มีสูตรใดแม่นยำ 100% ตลอดเวลา โปรดเล่นอย่างมีสติและบริหารเงินให้ดี
+        <strong>ℹ️ วิธีใช้งาน Extreme Intelligence Edition:</strong><br>
+        1. บันทึกผลไพ่ที่ออกมา (P, B, T) <br>
+        2. ดูที่ "Stability Score" - ถ้าต่ำกว่า 40% = ห้องอันตราย ถ้าเห็น "WAIT" = หยุดดูสักครู่ <br>
+        3. ถ้า AI ไม่แนะนำ = ห้องแกว่ง ควรเปลี่ยนห้อง <br>
+        4. ลดเงินเดิมพันเมื่อ Stability Score ต่ำ เพื่อลดความเสี่ยง
     </div>
 </div>
 
 <script>
     let history = [];
-    let antiMode = false;
     let predictions = [];
     
     const predictionEl = document.getElementById('prediction');
     const confidenceEl = document.getElementById('confidence');
     const historyEl = document.getElementById('history');
-    const statsEl = document.getElementById('stats');
-    const accuracyFill = document.getElementById('accuracyFill');
-    const inputCard = document.getElementById('inputCard');
-    const statsCard = document.getElementById('statsCard');
-    const predictionBox = document.getElementById('predictionBox');
-    const accuracyMeter = document.getElementById('accuracyMeter');
-
-    function setMode(mode) {
-        antiMode = mode === 'anti';
-        document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        
-        if (antiMode) {
-            inputCard.classList.add('anti-mode');
-            statsCard.classList.add('anti-mode');
-            predictionBox.classList.add('anti-mode');
-            accuracyMeter.classList.add('anti-mode');
-        } else {
-            inputCard.classList.remove('anti-mode');
-            statsCard.classList.remove('anti-mode');
-            predictionBox.classList.remove('anti-mode');
-            accuracyMeter.classList.remove('anti-mode');
-        }
-        updateUI();
-    }
+    const stabilityScoreEl = document.getElementById('stabilityScore');
+    const stabilityFillEl = document.getElementById('stabilityFill');
+    const stabilityStatusEl = document.getElementById('stabilityStatus');
+    const roomPatternEl = document.getElementById('roomPattern');
+    const riskLevelEl = document.getElementById('riskLevel');
+    const recommendationEl = document.getElementById('recommendation');
+    const waitWarningEl = document.getElementById('waitWarning');
+    const dangerWarningEl = document.getElementById('dangerWarning');
 
     function addResult(res) {
         history.push(res);
@@ -383,6 +392,45 @@
         }
     }
 
+    function calculateStabilityScore() {
+        if (history.length < 5) return 50;
+        
+        const recent = history.slice(-10);
+        let changes = 0;
+        
+        for (let i = 1; i < recent.length; i++) {
+            if (recent[i] !== recent[i-1] && recent[i] !== 'T' && recent[i-1] !== 'T') {
+                changes++;
+            }
+        }
+        
+        const stability = 100 - (changes * 15);
+        return Math.max(0, Math.min(100, stability));
+    }
+
+    function getRoomPattern() {
+        if (history.length < 3) return 'รอข้อมูล...';
+        
+        const relevant = history.filter(x => x !== 'T');
+        if (relevant.length < 3) return 'รอข้อมูล...';
+        
+        const last3 = relevant.slice(-3);
+        if (last3[0] === last3[1] && last3[1] === last3[2]) {
+            return '🐉 DRAGON (มังกร)';
+        }
+        
+        if (last3[0] !== last3[1] && last3[1] !== last3[2] && last3[0] !== last3[2]) {
+            return '🏓 PING-PONG';
+        }
+        
+        const stability = calculateStabilityScore();
+        if (stability < 40) {
+            return '🌀 RANDOM (ไร้รูปแบบ)';
+        }
+        
+        return '📈 TREND';
+    }
+
     function updateUI() {
         // อัปเดตประวัติ
         historyEl.innerHTML = '';
@@ -398,42 +446,80 @@
         const p = history.filter(x => x === 'P').length;
         const b = history.filter(x => x === 'B').length;
         const t = history.filter(x => x === 'T').length;
-        statsEl.innerHTML = `
-            <div class="stat-box">P: ${p}</div>
-            <div class="stat-box">B: ${b}</div>
-            <div class="stat-box">T: ${t}</div>
-            <div class="stat-box">ทั้งหมด: ${history.length}</div>
-        `;
+        document.getElementById('statP').innerText = p;
+        document.getElementById('statB').innerText = b;
+        document.getElementById('statT').innerText = t;
+
+        // คำนวณ Stability Score
+        const stability = calculateStabilityScore();
+        stabilityScoreEl.innerText = stability + '%';
+        stabilityFillEl.style.width = stability + '%';
+        stabilityFillEl.innerText = stability + '%';
+        
+        // เปลี่ยนสี Stability Score
+        stabilityScoreEl.className = 'stability-score';
+        stabilityFillEl.className = 'stability-fill';
+        
+        if (stability < 40) {
+            stabilityScoreEl.classList.add('danger');
+            stabilityFillEl.classList.add('danger');
+            stabilityStatusEl.className = 'room-status danger';
+            stabilityStatusEl.innerText = '🔴 DANGER - ห้องอันตราย';
+            riskLevelEl.innerText = 'ความเสี่ยง: สูงมาก ⚠️';
+        } else if (stability < 60) {
+            stabilityScoreEl.classList.add('warning');
+            stabilityFillEl.classList.add('warning');
+            stabilityStatusEl.className = 'room-status warning';
+            stabilityStatusEl.innerText = '🟡 WARNING - ระวัง';
+            riskLevelEl.innerText = 'ความเสี่ยง: ปานกลาง';
+        } else {
+            stabilityStatusEl.className = 'room-status normal';
+            stabilityStatusEl.innerText = '🟢 SAFE - ปลอดภัย';
+            riskLevelEl.innerText = 'ความเสี่ยง: ต่ำ';
+        }
+
+        // อัปเดตรูปแบบห้อง
+        roomPatternEl.innerText = getRoomPattern();
 
         // คำนวณสูตร AI
         calculateAI();
         
-        // อัปเดตความแม่นยำ
-        updateAccuracy();
+        // แสดง/ซ่อน Warning
+        updateWarnings();
     }
 
     function calculateAI() {
         if (history.length < 3) {
             predictionEl.innerText = 'รอข้อมูล...';
-            predictionEl.style.color = '#fff';
             confidenceEl.innerText = 'กรุณาบันทึกผลอย่างน้อย 3 ตา';
+            recommendationEl.innerText = '-';
+            return;
+        }
+
+        const stability = calculateStabilityScore();
+        
+        // ถ้าห้องแกว่งมากเกินไป ให้บอกให้หยุดดู
+        if (stability < 30) {
+            predictionEl.innerText = 'WAIT';
+            confidenceEl.innerText = '⏸️ ห้องแกว่งมาก หยุดดูสักครู่';
+            recommendationEl.innerText = '💡 ควรเปลี่ยนห้อง';
             return;
         }
 
         const relevant = history.filter(x => x !== 'T');
         const len = relevant.length;
         let prediction = '';
-        let confidence = 'Standard Confidence';
+        let confidence = '';
 
         // 1. ตรวจสอบมังกร
         if (len >= 3 && relevant.slice(-3).every(x => x === relevant[len-1])) {
             prediction = relevant[len-1] === 'P' ? 'PLAYER' : 'BANKER';
-            confidence = '🔥 HIGH CONFIDENCE: DRAGON PATTERN';
+            confidence = '🔥 DRAGON: HIGH CONFIDENCE';
         } 
         // 2. ตรวจสอบปิงปอง
         else if (len >= 4 && relevant[len-1] !== relevant[len-2] && relevant[len-2] === relevant[len-4]) {
             prediction = relevant[len-1] === 'P' ? 'BANKER' : 'PLAYER';
-            confidence = '🏓 HIGH CONFIDENCE: PING-PONG';
+            confidence = '🏓 PING-PONG: HIGH CONFIDENCE';
         }
         // 3. สถิติ Bayesian
         else {
@@ -442,52 +528,49 @@
             
             if (recent_p > 0.6) {
                 prediction = 'BANKER';
-                confidence = 'Statistical Reversion (Banker Due)';
+                confidence = '📊 Reversion: MEDIUM CONFIDENCE';
             } else if (recent_b > 0.6) {
                 prediction = 'PLAYER';
-                confidence = 'Statistical Reversion (Player Due)';
+                confidence = '📊 Reversion: MEDIUM CONFIDENCE';
             } else {
                 prediction = relevant[len-1] === 'P' ? 'PLAYER' : 'BANKER';
-                confidence = 'Following the Trend';
+                confidence = '📈 Trend: LOW-MEDIUM CONFIDENCE';
             }
-        }
-
-        // ใช้โหมด Anti-Casino
-        if (antiMode) {
-            prediction = prediction === 'PLAYER' ? 'BANKER' : 'PLAYER';
-            confidence = '🚨 ANTI-CASINO MODE: ' + confidence;
         }
 
         predictions.push(prediction);
         predictionEl.innerText = prediction;
         predictionEl.style.color = prediction === 'PLAYER' ? '#007BFF' : '#DC3545';
         confidenceEl.innerText = confidence;
+        recommendationEl.innerText = `ลงเงิน: ${stability > 60 ? 'ปกติ' : 'ลด 50%'}`;
     }
 
-    function updateAccuracy() {
-        if (history.length < 10) {
-            accuracyFill.style.width = '0%';
-            accuracyFill.innerText = '0%';
-            return;
-        }
-
-        const recentHistory = history.slice(-10);
-        let correct = 0;
+    function updateWarnings() {
+        const stability = calculateStabilityScore();
+        const relevant = history.filter(x => x !== 'T');
         
-        for (let i = 0; i < recentHistory.length - 1; i++) {
-            if (predictions[predictions.length - 10 + i] === recentHistory[i + 1]) {
-                correct++;
+        // ตรวจสอบการผิดติดต่อกัน
+        let consecutiveWrong = 0;
+        for (let i = Math.max(0, history.length - 5); i < history.length - 1; i++) {
+            if (predictions[i] && predictions[i] !== history[i + 1]) {
+                consecutiveWrong++;
+            } else {
+                consecutiveWrong = 0;
             }
         }
-        
-        const accuracy = Math.round((correct / 9) * 100);
-        accuracyFill.style.width = accuracy + '%';
-        accuracyFill.innerText = accuracy + '%';
-        
-        if (accuracy < 30) {
-            accuracyFill.classList.add('low');
+
+        // แสดง WAIT warning
+        if (stability < 40) {
+            waitWarningEl.style.display = 'block';
+            dangerWarningEl.style.display = 'none';
+        } 
+        // แสดง DANGER warning
+        else if (consecutiveWrong >= 3 || stability < 25) {
+            waitWarningEl.style.display = 'none';
+            dangerWarningEl.style.display = 'block';
         } else {
-            accuracyFill.classList.remove('low');
+            waitWarningEl.style.display = 'none';
+            dangerWarningEl.style.display = 'none';
         }
     }
 </script>
